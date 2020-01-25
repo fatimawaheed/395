@@ -1,0 +1,5 @@
+download xampp
+=> https://www.apachefriends.org/download.html
+
+VS Code
+=> https://code.visualstudio.com/download
