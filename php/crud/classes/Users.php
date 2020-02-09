@@ -68,13 +68,44 @@ class User{
         // md5 32 bit
         $this->password = sha1($data);
     }
-    public function setDob($data){
+    public function setDob($dateOfBirth){
+        extract($dateOfBirth);
 
-        $this->dob = $data;
+        //Assignment:  Month convert in integer 
+        if(!checkdate(2,$day,$year)){
+            throw new Exception("Select Correct Date");
+        }
+
+        $dob_timestamp = mktime(0,0,0,2,$day,$year);
+        $this->dob = $dob_timestamp;
     }
 
-    public function setProfileImage($data){
-        $this->email = $data;
+    public function setProfileImage($image){
+        if($image['error'] == 4){
+            throw new Exception("Select Image");
+        }
+
+
+        if($image['size']  > 2097152){
+            throw new Exception("Image size greater then 2mb");
+        }
+
+        // echo $image['type'];
+        if($image['type'] != 'image/jpeg'){
+            throw new Exception("Only support JPG / JPEG format");
+        }
+
+        $image_size = getimagesize($image['tmp_name']);
+
+        if($image['type'] != $image_size['mime']){
+            throw new Exception("Select correct Image");
+        }
+        
+        $getExt =  explode('.',$image['name']);
+        $getExt = end($getExt);
+
+        $image_name = strtolower($this->first_name) . ".$getExt";
+        $this->profile_image = $image_name;
     }
 
 

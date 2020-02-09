@@ -12,7 +12,7 @@ require_once "bootstrapping/load_files.php";
 </head>
 
 <body>
-    <form action="<?php echo BASE_URL . 'process/user_registration.php' ?>" method="post">
+    <form enctype="multipart/form-data" action="<?php echo BASE_URL . 'process/user_registration.php' ?>" method="post">
         First Name:<input type="text" name="first_name"><br>
         Last Name:<input type="text" name="last_name"><br>
         Email:<input type="email" name="email"><br>
