@@ -61,18 +61,24 @@ try {
     $errors['dob']  = $e->getMessage();
 }
 
-
-// $abc = 0;
-// echo !empty($abc) ? $abc : 'empty';
-// isset
-// empty
-// die;
 try {
     $user->profile_image = !empty($_FILES['profile_image']) ? $_FILES['profile_image'] : '';
 } catch (Exception $e) {
     $errors['profile_image']  = $e->getMessage();
 }
 
-dd($errors);
-$user->first_name = $_POST['first_name'];
+if(empty($errors)){
+
+    // Add To User
+    try{
+        $result  = $user->addToUser();
+        // if(!empty($result)){
+            $user->uploadImage($_FILES['profile_image']['tmp_name']);
+        // }
+    }catch(Exception $e){
+        // $e->getMessage()
+    }
+    // $result = 
+}
+
 dd($_POST);
