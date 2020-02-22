@@ -1,0 +1,3 @@
+composer install/update
+create .env file
+php artisan key:generate

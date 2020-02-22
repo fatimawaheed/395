@@ -15,3 +15,5 @@ Folder => Git bash here
 create new file and check the status using this commond "git status".
 => add new branch "git branch branch_name"
 => checkout new branch "git checkout branch"
+
+create ssh using this commond "ssh-keygen"
