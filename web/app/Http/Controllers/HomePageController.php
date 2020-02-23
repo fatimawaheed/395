@@ -1,7 +1,6 @@
 <?php
 
 namespace App\Http\Controllers;
-
 use Illuminate\Http\Request;
 
 class HomePageController extends Controller
@@ -10,10 +9,8 @@ class HomePageController extends Controller
 
     public function getHomePage()
     {
-        // return 'my home page';
-        dd(get_included_files());
-        $data = ['meta_title' => 'User Registration'];
+        $data = ['meta_title' => 'Home page'];
 
-        return view('registration', $data);
+        return view('home', $data);
     }
 }

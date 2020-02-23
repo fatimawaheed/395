@@ -11,4 +11,7 @@
 |
 */
 
-Route::get('/evs', 'HomePageController@getHomePage');
+Route::get('/', 'HomePageController@getHomePage');
+Route::get('/registration', 'UsersController@getRegistrationPage');
+Route::get('/contact-us', 'CompanyPageController@getContactUs');
+
